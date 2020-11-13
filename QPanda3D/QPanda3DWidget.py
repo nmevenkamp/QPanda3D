@@ -7,6 +7,9 @@ Description :
     It takes a Panda3DWorld object at init time.
     You should first create the Panda3DWorkd object before creating this widget.
 """
+# Standard imports
+import traceback
+
 # PyQt imports
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
@@ -105,6 +108,7 @@ class QPanda3DWidget(QWidget):
             messenger.send(b)
         except:
             print("Unimplemented button. Please send an issue on github to fix this problem")
+            traceback.print_exc()
 
     def mouseReleaseEvent(self, evt):
         button = evt.button()
@@ -115,6 +119,7 @@ class QPanda3DWidget(QWidget):
             messenger.send(b)
         except:
             print("Unimplemented button. Please send an issue on github to fix this problem")
+            traceback.print_exc()
 
     def wheelEvent(self, evt):
         delta = evt.angleDelta().y()
@@ -136,6 +141,7 @@ class QPanda3DWidget(QWidget):
             messenger.send(k)
         except:
             print("Unimplemented key. Please send an issue on github to fix this problem")
+            traceback.print_exc()
 
     def keyReleaseEvent(self, evt):
         key = evt.key()
@@ -146,6 +152,7 @@ class QPanda3DWidget(QWidget):
             messenger.send(k)
         except:
             print("Unimplemented key. Please send an issue on github to fix this problem")
+            traceback.print_exc()
 
     def resizeEvent(self, evt):
         lens = self.panda3DWorld.cam.node().get_lens()
